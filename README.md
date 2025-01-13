@@ -2,6 +2,8 @@
 
 A simple stopwatch app built with React and Vite.
 
+![ss](/docs/ss.png)
+
 ## Features
 
 - Start, stop, and reset the stopwatch
