@@ -1,0 +1,115 @@
+body {
+    background-color: #1f1f21;
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.stopwatch-container {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 100px 0px;
+    border: none;
+    border-radius: 50px;
+    background-color: #292929;
+    position: relative;
+}
+
+@property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.stopwatch-container::before,
+.stopwatch-container::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(var(--angle), #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00e7, #ff0000);
+    z-index: -1;
+    border-radius: 50px;
+    padding: 5px;
+    animation-name: spin;
+    animation-duration: 15s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes spin {
+    0% {
+        --angle: 0deg;
+    }
+
+    100% {
+        --angle: 360deg;
+    }
+}
+
+.stopwatch-container::before {
+    filter: blur(20px);
+    opacity: 0.5;
+}
+
+.button-container {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.stopwatch-title {
+    font-size: 4rem;
+}
+
+.stopwatch-elapsed-time {
+    font-size: 3rem;
+}
+
+.btn {
+    border: none;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 20px;
+    text-transform: uppercase;
+    background-size: 200% auto;
+    transition: 200ms;
+    -webkit-box-shadow: 6px 10px 17px 2px rgba(0, 0, 0, 0.28);
+    -moz-box-shadow: 6px 10px 17px 2px rgba(0, 0, 0, 0.28);
+    box-shadow: 6px 10px 17px 2px rgba(0, 0, 0, 0.28);
+}
+
+.btn:hover{
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    background-position: right center;
+    /* change the direction of the change here */
+    color: #fff;
+}
+
+.btn-start {
+    background-image: linear-gradient(to right, #09ff78, #05f97f, #00bd5e);
+}
+
+.btn-stop {
+    background-image: linear-gradient(to right, #ff2a2a, #ff3c3c, #be2000);
+}
+
+.btn-reset {
+    background-image: linear-gradient(to right, #00ffee, #00c8ff, #00a59d);
+}
